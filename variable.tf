@@ -36,3 +36,24 @@ variable "cidr_block" {
     type = list(string)
     default = ["10.0.0.0/16", "10.1.0.0/16","10.0.1.0/24","10.0.2.0/24","10.1.1.0/24","10.1.2.0/24"]
 }
+
+variable "ingress_rule" {
+    type = map(string)
+    default = {
+        "description" = "Allow HTTPS"
+        "from_port"   = "443"
+        "to_port"     = "443"
+        "protocol"    = "tcp"
+        "cidr_blocks" = "0.0.0.0/0"
+    }
+}
+variable "egress_rule" {
+    type = map(string)
+    default = {
+        "description" = "outbound traffic"
+        "from_port"   = "0"
+        "to_port"     = "0"
+        "protocol"    = "-1"
+        "cidr_blocks" = "0.0.0.0/0"
+    }
+}
