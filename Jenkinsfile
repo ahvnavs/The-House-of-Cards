@@ -18,3 +18,4 @@ stages {
                 sh 'terraform plan'
             }
         }
+}
